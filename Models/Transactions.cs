@@ -7,7 +7,6 @@ namespace ASPcoreWebApp.Models
     public class Transactions
     {
 
-
         [Key]
         public int TransactionId { get; set; }
 

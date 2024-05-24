@@ -1,4 +1,5 @@
 using ASPcoreWebApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,7 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 
-builder.Services.AddDbContext<TransactionDbContext>();
+builder.Services.AddDbContext<TransactionDbContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
